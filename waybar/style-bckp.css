@@ -1,15 +1,15 @@
 /* Configuração Principal da Janela */
 window#waybar {
-    background: transparent;
-    /* Cor escura com 60% de transparência */
-    color: #c0caf5;
+    background: rgba(26, 27, 38, 0); /* Cor escura com 60% de transparência */
+    margin: 8px 12px 0px 12px; /* Margens para o efeito flutuante */
+    color: #c0caf5; /* Texto em tom pastel (Tokyo Night vibe) */
     font-family: "JetBrainsMono Nerd Font", "Roboto", sans-serif;
     font-size: 14px;
-    border-top: 23px solid rgba(26, 27, 38, 1);
 }
 
 /* Estilo Geral para todos os módulos */
 #workspaces,
+#taskbar,
 #clock,
 #pulseaudio,
 #network,
@@ -18,18 +18,20 @@ window#waybar {
 #battery,
 #custom-keymap,
 #custom-power {
-    border-bottom-left-radius: 16px;
-    border-bottom-right-radius: 16px;
-    margin: 5px 5px 0 0;
-    background: rgba(26, 27, 38, 1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    margin: 0 5px;
+    background: rgba(26, 27, 38, 0.6); /* Cor escura com 60% de transparência */
     padding: 0 10px;
-}
-
-#workspaces {
-    border-bottom-left-radius: 0;
+    transition: all 0.3s ease;
 }
 
 /* --- LADO ESQUERDO --- */
+
+#workspaces {
+    margin-left: 8px;
+}
+
 #workspaces button {
     color: #7aa2f7;
     padding: 0 5px;
@@ -55,61 +57,47 @@ window#waybar {
 
 #clock {
     font-weight: bold;
-    color: #e0af68;
-    /* Tom dourado suave */
+    color: #e0af68; /* Tom dourado suave */
 }
 
 /* --- LADO DIREITO --- */
 
-#pulseaudio {
-    color: #73daca;
-}
-
-#network {
-    color: #b4f9f8;
-}
-
-#battery {
+#pulseaudio { color: #73daca; }
+#network { color: #b4f9f8; }
+#battery { 
     color: #9ece6a;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     border-right: 0;
     margin-right: 0;
 }
-
 #power-profiles-daemon {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     border-left: 0;
     margin-left: 0;
 }
+#battery.charging { color: #e0af68; }
+#battery.critical { color: #f7768e; animation: blink 1s linear infinite; }
 
-#battery.charging {
-    color: #e0af68;
-}
-
-#battery.critical {
-    color: #f7768e;
-    animation: blink 1s linear infinite;
+#battery:hover,
+#power-profiles-daemon:hover {
+    background: rgba(255, 255, 255, 0.15);
 }
 
 #custom-power {
     color: #f7768e;
+    margin-right: 8px;
     font-size: 16px;
 }
 
 /* Efeito de Hover (Passar o mouse) */
 #workspaces button:hover,
-#taskbar button:hover {
+#taskbar button:hover,
+#pulseaudio:hover,
+#network:hover {
     background: rgba(255, 255, 255, 0.15);
     border-radius: 10px;
-}
-
-#pulseaudio:hover,
-#network:hover,
-#battery:hover,
-#power-profiles-daemon:hover {
-    border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 /* Animação para bateria crítica */
@@ -122,16 +110,14 @@ window#waybar {
 
 /* Estilização dos Tooltips */
 tooltip {
-    background: rgba(26, 27, 38, 0.85);
-    /* Um pouco mais opaco que a barra para leitura */
+    background: rgba(26, 27, 38, 0.85); /* Um pouco mais opaco que a barra para leitura */
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 12px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 tooltip label tt {
-    color: #c0caf5;
-    /* Cor do texto dentro do tooltip */
+    color: #c0caf5; /* Cor do texto dentro do tooltip */
     font-family: "JetBrainsMono Nerd Font", sans-serif;
     font-size: 13px;
     padding: 8px;
@@ -139,8 +125,7 @@ tooltip label tt {
 
 /* O container do menu (a caixa flutuante) */
 menu {
-    background: rgba(26, 27, 38, 0.85);
-    /* Fundo vidro escuro */
+    background: rgba(26, 27, 38, 0.85); /* Fundo vidro escuro */
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
     padding: 5px;
@@ -159,8 +144,7 @@ menuitem {
 
 /* Estilo quando você passa o mouse sobre a opção */
 menuitem:hover {
-    background: rgba(122, 162, 247, 0.3);
-    /* Azul translúcido */
+    background: rgba(122, 162, 247, 0.3); /* Azul translúcido */
     color: #ffffff;
 }
 
