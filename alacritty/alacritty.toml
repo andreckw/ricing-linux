@@ -1,2 +1,14 @@
+[general]
+import = ["~/.config/alacritty/themes/noctalia.toml"]
+
 [window]
-opacity=0.75
+opacity=0.85
+blur=true
+dynamic_title=false
+
+[font]
+size=13
+
+[colors]
+[colors.primary]
+foreground="#00FF00"
